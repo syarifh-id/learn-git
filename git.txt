@@ -1,0 +1,187 @@
+Home
+Tutorial
+Buku
+Forum
+Join Newsletter
+author
+Ahmad Muhardian
+· 29 Jan 2017
+Cara Setup SSH Key untuk Github agar Bisa Ngepush Tanpa Password
+#SSH
+#Git
+#Github
+
+Setup SSH Key untuk Github
+
+Kita bisa melakukan push ke Github melalui dua metode yakni, melalui protokol HTTPS dan SSH.
+
+Jika kita menggunakan HTTPS, maka kita akan dimintai password di setiap kali melakukan push. Sedangkan kalau pakai SSH, ini tidak perlu..
+
+..karena passwordnya akan diwaklili oleh SSH Key.
+
+Pada tutorial ini, kita akan belajar gimana cara setup SSH Key untuk Github. Sehingga nanti bisa melakukan push tanpa harus ngetik password terus menerus.
+
+Mari kita mulai!
+Apa itu SSH Key?
+
+SSH Key adalah Key yang dipakai untuk berkomunikasi dengan server melalui protokol SSH. SSH Key terdiri dari publik key dan private key.
+
+Publik key akan kita taruh ke server dalam hal ini adalah Github, kemudian private key akan kita simpan di lokal.
+
+Private key sebenarnya mewakili password, sehingga kamu tidak boleh sembarangan membagikannya.
+
+Intinya, private key dan publik key akan dicocokan secara otomatis saat kita terhubung dengan SSH.
+1. Cara Membuat SSH Key
+
+Kita bisa membuat SSH Key dengan perintaih ssh-keygen, ini bisa kamu ketik di Terminal dan Git Bash.
+
+Silahkan buka Terminal, kemudian ketik perintah berikut untuk membuat SSH Key:
+
+cd ~/.ssh/ #pindah ke direktori ssh
+
+# membuat private key dan public key
+ssh-keygen -t rsa
+
+Pada perintah ini, kita masuk dulu ke folder .ssh yang ada di Home, kemudian kita generate SSH Key dengan ssh-keygen.
+
+Berikutnya, kita akan diminta mengisi id dan passpharse.
+
+Membuat SSH Key
+
+Pada contoh di atas, saya mengisi id dengan dian dan passpharse tidak diisi. Langsung saja tekan Enter saat pengisian passpharse.
+
+Jika kamu mengisi passpharse, maka akan diminta mengisinya lagi saat melakukan push melalui SSH.
+
+Setelah selesai… akan ada dua file baru di dalam direktori ~/.ssh/.
+
+Private Key dan Public Key
+
+Private Key berisi kunci rahasia yang tidak boleh diketahui siapapun dan Public Key berisi kuncil publik yang akan kita taruh di Bitbucket.
+3. Tambahkan SSH Key ke Github
+
+Sebelumnya ambil dulu kuncil publik yang sudah anda buat, gunakan perintah cat.
+
+cat ~/.ssh/id_anda.pub
+
+Copy semua teks yang ditampilkan.
+
+Melihat Public Key
+
+Lalu masuk ke Settings>SSH and GPG Keys
+
+, tambahkan SSH Key baru dengan mengelik New SSH Key.
+
+Setelah itu masukkan atau paste public key yang kamu copy tadi.
+
+Tambah SSH Key ke Github
+
+Jangan lupa juga untuk kasi Title seperti nama komputermu biar gampang diingat, jika nanti kamu menambahkan banyak SSH Key.
+4. Uji Coba SSH Key
+
+Karena kita baru pertama kali buat SSH Key, kita harus tambahkan dulu identitas kita.
+
+Caranya ketik perintah berikut:
+
+ssh-add dian
+
+Silahkan ganti dian dengan id dari SSH key yang kamu buat tadi. Jika berhasil, maka akan muncul seperti ini:
+
+add ssh key
+
+Setelah itu, baru kita bisa tes konek ke Github dengan SSH.
+
+Caranya, ketik perintah berikut:
+
+ssh -T git@github.com
+
+Jika hasilnya seperti berikut ini, berarti berhasil. Selanjutnya kita tinggal melakukan push dengan SSH.
+
+Test koneksi SSH Github
+
+Konfigurasi Agar SSH Key Otomatis ditambahkan
+
+Setelah komputer di-restart, SSH Key harus ditambahkan lagi agar bisa digunakan.
+
+Nah, biar tidak mengetik perintah ssh-add berulang-ulang, kita bisa buat konfigurasi agar SSH Key otomatis ditambahkan.
+
+Caranya:
+
+    Buat file baru di dalam direktori ~/.ssh/ bernama config.
+
+    File konfigruasi
+
+    Isi file config dengan konfigurasi seperti ini:
+
+    # Github.com server
+    Host github.com
+    IdentityFile ~/.ssh/dian
+
+    Ganti dian dengan id SSH Key yang kamu buat.
+
+    Konfigurasi SSH
+
+Selesai!
+Apa Selanjutnya?
+
+Selamat, kamu sudah berhasil setup SSH Key untuk menggunakan Github melalui SSH.
+
+Selanjutnya, Cobalah untuk clone repository dengan SSH dan lakukan push dan pull.
+
+Clone Repositori dengan SSH
+
+Selamat mencoba!
+📫 Newsletter..
+
+Mau dapat tips belajar coding, info teknologi, dan perkembangan karir sebagai programmer?
+Subscribe
+🔥 Artikel Terbaru
+Tutorial CSS: Menentukan Ukuran Elemen dengan Satuan yang Tepat
+
+28 Mar 2023 • baca 8 menit
+Post thumbnail
+Tutorial Tailwind #1: Dasar Tailwind CSS untuk Pemula
+
+14 Dec 2022 • baca 7 menit
+Post thumbnail
+Tutorial Membuat REST API dengan Express, Typescript, dan PostgreSQL
+
+25 Nov 2022 • baca 10 menit
+Post thumbnail
+Tutorial Docker: Cara Install dan Setup Docker dengan Benar!
+
+24 Nov 2022 • baca 5 menit
+Post thumbnail
+Cara Fetch API dengan Alpinejs untuk Ambil Data dari Backend
+
+24 Nov 2022 • baca 4 menit
+Post thumbnail
+Tutorial Tailwind: Membuat Card dengan Image Zoom-in Saat Hover
+
+21 Nov 2022 • baca 3 menit
+Post thumbnail
+
+Tempat belajar budidaya kode (coding)
+dengan tutorial yang gampang dipahami.
+Belajar
+Artikel
+Tutorial
+Buku
+Popular Tutorial
+Tutorial Bahasa C
+Tutorial Javascript
+Tutorial Java
+Tutorial PHP
+Tutorial Python
+Social Media
+Facebook Page
+Instagram
+Twitter
+Youtube Channel
+Telegram Channel
+Petani Kode
+About
+FAQs
+Contact
+Ikuti Kami di
+
+© 2023 Petani Kode · Made with ❤️ using Hugo 0.114.1
