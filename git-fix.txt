@@ -170,3 +170,8 @@ Ketika Anda mencoba melakukan merge atau pull dengan opsi --allow-unrelated-hist
 Untuk mengatasi masalah ini, Anda harus memutuskan apakah penggabungan branch tersebut memang benar-benar diperlukan dan memiliki makna logis atau tidak. Jika ya, Anda dapat melakukan merge tanpa opsi --allow-unrelated-histories. Namun, jika Anda tidak ingin menggabungkan kedua sejarah commit tersebut, Anda bisa mempertimbangkan untuk menggunakan cara lain, seperti membuat branch baru dari titik awal yang diinginkan dan melakukan perubahan yang diperlukan pada branch tersebut.
 
 Perlu diingat bahwa melakukan merge antara dua branch yang tidak berhubungan dapat menyebabkan kekacauan dalam sejarah commit Anda, jadi pastikan untuk memahami konsekuensi dari tindakan Anda dan pastikan Anda tahu apa yang Anda lakukan sebelum melanjutkan.
+
+
+ mengganti repository remote
+
+git remote set-url origin https://github.com/username/nama_repo_baru.git
