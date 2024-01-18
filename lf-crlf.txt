@@ -1,0 +1,18 @@
+LF dan CRLF adalah dua karakter yang digunakan untuk mengakhiri baris dalam file teks.
+
+    LF, singkatan dari Line Feed, adalah karakter ASCII 10, yang berfungsi untuk memindahkan kursor ke baris berikutnya.
+    CR, singkatan dari Carriage Return, adalah karakter ASCII 13, yang berfungsi untuk mengembalikan kursor ke awal kolom.
+
+CRLF adalah kombinasi dari CR dan LF, yaitu karakter ASCII 13 diikuti oleh karakter ASCII 10.
+
+Dalam sistem operasi Unix/Linux, akhiran baris file teks adalah LF saja. Sedangkan dalam sistem operasi DOS/Windows, akhiran baris file teks adalah CRLF.
+
+Perbedaan ini dapat menyebabkan masalah jika file teks yang dibuat di satu sistem operasi dibuka di sistem operasi lain. Misalnya, jika file teks yang dibuat di Windows dibuka di Linux, maka kursor akan tetap berada di baris yang sama, karena file teks tersebut tidak memiliki karakter LF.
+
+Untuk menghindari masalah ini, file teks dapat dikonversi dari satu format ke format lainnya. Misalnya, file teks yang dibuat di Windows dapat dikonversi ke format LF dengan menggunakan aplikasi seperti Notepad++.
+
+Berikut adalah tabel perbandingan LF dan CRLF:
+Karakter	Fungsi	Sistem Operasi
+LF	Memindahkan kursor ke baris berikutnya	Unix/Linux
+CR	Mengembalikan kursor ke awal kolom	Unix/Linux
+CRLF	Memindahkan kursor ke baris berikutnya, lalu mengembalikan kursor ke awal kolom	DOS/Windows
